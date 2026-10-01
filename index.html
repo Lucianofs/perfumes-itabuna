@@ -121,8 +121,7 @@
 
         /* HERO */
         .hero {
-            background: linear-gradient(135deg, rgba(10,10,15,0.95), rgba(26,26,46,0.95)), 
-                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="%23d4af37" stroke-width="0.5" opacity="0.3"/></svg>');
+            background: linear-gradient(135deg, rgba(10,10,15,0.95), rgba(26,26,46,0.95));
             color: white;
             padding: 4rem 20px;
             text-align: center;
@@ -595,7 +594,6 @@
     <header>
         <div class="header-content">
             <div class="logo-container">
-                <!-- LOGO: Substitua pelo arquivo perfumes-itabuna-logo.png -->
                 <img src="perfumes-itabuna-logo.png" alt="Perfumes Itabuna Logo - Contratipos Importados" onerror="this.style.display='none'">
                 <a href="#" class="logo-text">Perfumes <span>Itabuna</span></a>
             </div>
@@ -624,7 +622,7 @@
             </div>
 
             <a href="https://wa.me/5573991281765?text=Olá!%20Gostaria%20de%20conhecer%20os%20perfumes%20contratipo%20disponíveis%20em%20Itabuna" class="cta-button" target="_blank">
-                 Ver Catálogo no WhatsApp
+                📱 Ver Catálogo no WhatsApp
             </a>
         </div>
     </section>
@@ -662,12 +660,12 @@
 
     <!-- PRODUCTS -->
     <section class="products" id="produtos">
-        <h2 class="section-title">🌟 Nosso Catálogo Completo</h2>
+        <h2 class="section-title"> Nosso Catálogo Completo</h2>
         <p class="section-subtitle">Mais de 60 fragrâncias inspiradas nas marcas mais desejadas do mundo</p>
         
         <div class="tabs">
             <button class="tab-button active" onclick="showTab('femininos')">👩 Femininos (<span id="count-fem">0</span>)</button>
-            <button class="tab-button" onclick="showTab('masculinos')"> Masculinos (<span id="count-masc">0</span>)</button>
+            <button class="tab-button" onclick="showTab('masculinos')">👨 Masculinos (<span id="count-masc">0</span>)</button>
         </div>
 
         <div id="femininos" class="tab-content active"></div>
@@ -709,7 +707,7 @@
 
     <!-- FOOTER -->
     <footer>
-        <div class="footer-logo"> Perfumes Itabuna</div>
+        <div class="footer-logo">💎 Perfumes Itabuna</div>
         <p>Qualidade e economia em fragrâncias importadas</p>
         
         <div class="footer-contact">
@@ -816,20 +814,22 @@
             const desconto = Math.round((1 - precoContratipo / perfume.originalPrice) * 100);
             const parcelas = precoContratipo >= 100 ? "3x no cartão" : "2x no cartão";
             
-            // Cores diferentes para cada perfume
-            const cores = ['#d4af37', '#e94560', '#4169e1', '#2f4f4f', '#8b0000', '#da70d6', '#ff6347', '#1e90ff'];
-            const cor = cores[perfume.code.charCodeAt(1) % cores.length];
-            
+            // Truncar nome longo para o placeholder ficar bonito
+            let nomeOriginal = perfume.name;
+            if (nomeOriginal.length > 14) {
+                nomeOriginal = nomeOriginal.substring(0, 14) + "..";
+            }
+
             return `
                 <div class="product-card">
                     <div class="product-images">
                         <div class="product-image-container">
                             <span class="label label-dupe">CONTRATIPO</span>
-                            <img src="https://placehold.co/200x200/${cor.replace('#','')}/ffffff?text=${encodeURIComponent(perfume.name.split(' ')[0])}" alt="${perfume.name} Contratipo ${perfume.brand}">
+                            <img src="https://placehold.co/200x200/1a1a2e/d4af37?text=CONTRATIPO+PREMIUM&font=montserrat" alt="Frasco Contratipo Inspirado em ${perfume.name}">
                         </div>
                         <div class="product-image-container">
                             <span class="label label-original">ORIGINAL</span>
-                            <img src="https://placehold.co/200x200/333333/d4af37?text=${encodeURIComponent(perfume.brand.split(' ')[0])}" alt="${perfume.name} Original ${perfume.brand}">
+                            <img src="https://placehold.co/200x200/f8f9fa/333333?text=${encodeURIComponent(nomeOriginal)}&font=montserrat" alt="Perfume Original ${perfume.name} da marca ${perfume.brand}">
                         </div>
                     </div>
                     <div class="product-info">
