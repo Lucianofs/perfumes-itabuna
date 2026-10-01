@@ -101,7 +101,7 @@
             border: 1px solid var(--gold);
         }
 
-        /* URGENCY BANNER */
+        /* URGENCY BANNER - CORRIGIDO */
         .urgency-banner {
             margin-top: 82px;
             background: linear-gradient(90deg, var(--accent), #c0392b, var(--accent));
@@ -109,9 +109,14 @@
             animation: slideBanner 3s linear infinite;
             color: white;
             text-align: center;
-            padding: 12px;
+            padding: 15px 10px;
             font-weight: bold;
-            font-size: 1rem;
+            font-size: 0.95rem;
+            min-height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1.4;
         }
 
         @keyframes slideBanner {
@@ -585,6 +590,7 @@
             .tab-content.active { grid-template-columns: 1fr; }
             .header-content { justify-content: center; }
             .logo-text { font-size: 1.2rem; }
+            .urgency-banner { font-size: 0.85rem; padding: 12px 8px; }
         }
     </style>
 </head>
@@ -597,13 +603,13 @@
                 <img src="perfumes-itabuna-logo.png" alt="Perfumes Itabuna Logo - Contratipos Importados" onerror="this.style.display='none'">
                 <a href="#" class="logo-text">Perfumes <span>Itabuna</span></a>
             </div>
-            <div class="location"> Itabuna - Bahia</div>
+            <div class="location">📍 Itabuna - Bahia</div>
         </div>
     </header>
 
-    <!-- URGENCY BANNER -->
+    <!-- URGENCY BANNER - CORRIGIDO -->
     <div class="urgency-banner">
-        🔥 PROMOÇÃO ITABUNA: PERFUMES IMPORTADOS ATÉ 80% MAIS BARATO! ENTREGA RÁPIDA NA CIDADE! 🔥
+        🔥 PERFUMES IMPORTADOS ATÉ 80% MAIS BARATO! ENTREGA RÁPIDA EM ITABUNA! 🔥
     </div>
 
     <!-- HERO -->
@@ -622,14 +628,14 @@
             </div>
 
             <a href="https://wa.me/5573991281765?text=Olá!%20Gostaria%20de%20conhecer%20os%20perfumes%20contratipo%20disponíveis%20em%20Itabuna" class="cta-button" target="_blank">
-                📱 Ver Catálogo no WhatsApp
+                 Ver Catálogo no WhatsApp
             </a>
         </div>
     </section>
 
     <!-- COUNTER -->
     <div class="counter-bar">
-        🎯 +60 FRAGRÂNCIAS DISPONÍVEIS | 💳 PARCELAMOS NO CARTÃO |  ENTREGA EM ITABUNA
+        🎯 +60 FRAGRÂNCIAS DISPONÍVEIS | 💳 PARCELAMOS NO CARTÃO | 🚚 ENTREGA EM ITABUNA
     </div>
 
     <!-- BENEFITS -->
@@ -660,7 +666,7 @@
 
     <!-- PRODUCTS -->
     <section class="products" id="produtos">
-        <h2 class="section-title"> Nosso Catálogo Completo</h2>
+        <h2 class="section-title">🌟 Nosso Catálogo Completo</h2>
         <p class="section-subtitle">Mais de 60 fragrâncias inspiradas nas marcas mais desejadas do mundo</p>
         
         <div class="tabs">
@@ -728,76 +734,76 @@
     </a>
 
     <script>
-        // DADOS DOS PERFUMES - TODOS OS PDFs
+        // DADOS DOS PERFUMES - PREÇOS REAIS DE MERCADO (Outubro 2026)
         const perfumesFemininos = [
-            { code: "F001", name: "Lily Love", brand: "Animale", type: "Floral", notes: "Lírio, Jasmim, Notas Verdes", profile: "Feminino, delicado e romântico. Perfeito para o dia a dia.", originalPrice: 280 },
-            { code: "F002", name: "Delina", brand: "Parfums de Marly", type: "Floral Frutado", notes: "Ruibarbo, Lichia, Rosa Turca, Baunilha", profile: "Elegante, sofisticado e marcante. Um dos mais desejados do mundo.", originalPrice: 1800 },
-            { code: "F003", name: "Midnight Fantasy", brand: "Britney Spears", type: "Floral Frutado", notes: "Cereja, Orquídea, Baunilha, Almíscar", profile: "Sensual, misterioso e noturno. Para noites especiais.", originalPrice: 220 },
-            { code: "F004", name: "Yara", brand: "Lattafa", type: "Floral Frutado", notes: "Morango, Orquídea, Baunilha, Madeira", profile: "Doce, cremoso e envolvente. Sensação do momento!", originalPrice: 250 },
-            { code: "F005", name: "Royal Amber", brand: "Lattafa", type: "Oriental Ambarado", notes: "Âmbar, Baunilha, Especiarias", profile: "Luxuoso, quente e marcante. Perfume de rainha.", originalPrice: 320 },
-            { code: "F006", name: "Fakhar", brand: "Lattafa", type: "Floral Amadeirado", notes: "Rosa, Patchouli, Baunilha", profile: "Elegante e sofisticado. Versátil para todas as ocasiões.", originalPrice: 280 },
-            { code: "F007", name: "Angel Nova", brand: "Mugler", type: "Floral Frutado", notes: "Framboesa, Lichia, Rosa, Patchouli", profile: "Moderno, vibrante e angelical. Energia pura!", originalPrice: 650 },
-            { code: "F008", name: "Oriana", brand: "Parfums de Marly", type: "Floral Frutado", notes: "Mandarina, Pêssego, Jasmim, Baunilha", profile: "Radiante, feminino e luxuoso. Brilho em forma de perfume.", originalPrice: 1700 },
-            { code: "F009", name: "Haya", brand: "Lattafa", type: "Floral Oriental", notes: "Flor de Laranjeira, Jasmim, Baunilha", profile: "Doce, floral e encantador. Perfume da alegria.", originalPrice: 260 },
-            { code: "F010", name: "Sabah Al Ward", brand: "Lattafa", type: "Floral", notes: "Rosa, Jasmim, Almíscar", profile: "Floral puro, romântico e atemporal.", originalPrice: 290 },
-            { code: "F011", name: "Gucci Guilty", brand: "Gucci", type: "Floral Oriental", notes: "Mandarina, Pêssego, Jasmim, Patchouli", profile: "Sedutor, moderno e ousado. Para mulheres que provocam.", originalPrice: 750 },
-            { code: "F012", name: "Divine", brand: "Jean Paul Gaultier", type: "Floral Oriental", notes: "Íris, Baunilha, Âmbar", profile: "Divino, sensual e marcante. Essência de deusa.", originalPrice: 680 },
-            { code: "F013", name: "Princess", brand: "Marina de Bourbon", type: "Floral Frutado", notes: "Framboesa, Rosa, Baunilha", profile: "Real, feminino e encantador. Para princesas modernas.", originalPrice: 420 },
-            { code: "F014", name: "Baccarat Rouge 540", brand: "MFK", type: "Âmbar Floral", notes: "Açafrão, Jasmim, Cedro, Âmbar", profile: "Luxuoso, sofisticado e marcante. O perfume dos milionários!", originalPrice: 4500 },
-            { code: "F015", name: "Durrat Al Aroos", brand: "Al Haramain", type: "Floral Oriental", notes: "Rosa, Oud, Almíscar, Baunilha", profile: "Exótico, luxuoso e oriental. Joia da Arábia.", originalPrice: 380 },
-            { code: "F016", name: "J'adore L'Or", brand: "Dior", type: "Floral", notes: "Rosa de Grasse, Jasmim, Ylang-Ylang", profile: "Ouro líquido. O ápice da feminilidade e sofisticação.", originalPrice: 1500 },
-            { code: "F017", name: "Good Girl Sparkling Ice", brand: "Carolina Herrera", type: "Floral Oriental", notes: "Café, Cacau, Jasmim, Notas Geladas", profile: "Poderosa, sensual e refrescante. A boa girl na versão ice.", originalPrice: 900 },
-            { code: "F018", name: "La Vie Est Belle Intensément", brand: "Lancôme", type: "Floral Gourmand", notes: "Íris, Patchouli, Baunilha, Praliné", profile: "Doce, elegante e intenso. Celebra a felicidade da vida.", originalPrice: 1100 },
-            { code: "F019", name: "Gucci Bloom", brand: "Gucci", type: "Floral Branco", notes: "Tuberosa, Jasmim, Nardo", profile: "Autêntico, espontâneo e florescente. Natureza em perfume.", originalPrice: 750 },
-            { code: "F020", name: "Erba Pura", brand: "Xerjoff", type: "Frutado Oriental", notes: "Frutas Cítricas, Baunilha, Almíscar Branco", profile: "Explosão de frutas, luxuoso e marcante. Exclusividade pura.", originalPrice: 2800 },
-            { code: "F021", name: "212 NYC", brand: "Carolina Herrera", type: "Floral Oriental", notes: "Gardênia, Almíscar, Pimenta Rosa", profile: "Urbano, moderno e sedutor. A essência de Nova York.", originalPrice: 620 },
-            { code: "F022", name: "Very Good Girl", brand: "Carolina Herrera", type: "Floral Frutado", notes: "Lichia, Rosa, Baunilha", profile: "Audaz, feminina e irresistível. A versão moderna da Good Girl.", originalPrice: 850 },
-            { code: "F023", name: "Crush", brand: "Victoria's Secret", type: "Floral Frutado", notes: "Framboesa, Rosa, Almíscar", profile: "Jovem, vibrante e apaixonante. Paixão em forma de perfume.", originalPrice: 280 },
-            { code: "F024", name: "Prada Paradoxe", brand: "Prada", type: "Floral Amadeirado", notes: "Neroli, Bergamota, Baunilha, Âmbar", profile: "Moderno, intenso e envolvente. Para mulheres que quebram padrões.", originalPrice: 850 },
-            { code: "F025", name: "La Belle", brand: "Jean Paul Gaultier", type: "Floral Gourmand", notes: "Pêra, Baunilha, Madeira", profile: "Sedutora, doce e marcante. A bela em forma de fragrância.", originalPrice: 720 },
-            { code: "F026", name: "Bombshell", brand: "Victoria's Secret", type: "Floral Frutado", notes: "Maracujá, Toranja, Orquídea, Baunilha", profile: "Fresco, vibrante e sedutor. Energia pura!", originalPrice: 280 },
-            { code: "F027", name: "Secret Charm", brand: "Victoria's Secret", type: "Floral Frutado", notes: "Framboesa, Flor de Laranjeira, Baunilha", profile: "Misterioso, charmoso e feminino.", originalPrice: 260 },
-            { code: "F028", name: "Strawberries & Champagne", brand: "Victoria's Secret", type: "Frutado", notes: "Morango, Champagne, Notas Doces", profile: "Festivo, doce e sofisticado. Celebração em perfume.", originalPrice: 270 },
-            { code: "F029", name: "Pear Glacé", brand: "Victoria's Secret", type: "Frutado Floral", notes: "Pêra, Notas Geladas, Florais", profile: "Fresco, frutado e elegante. Sofisticação gelada.", originalPrice: 260 },
-            { code: "F030", name: "Coconut Passion", brand: "Victoria's Secret", type: "Oriental", notes: "Coco, Baunilha, Notas Tropicais", profile: "Tropical, quente e apaixonante. Férias em perfume.", originalPrice: 260 },
-            { code: "F031", name: "Bare Vanilla", brand: "Victoria's Secret", type: "Gourmand", notes: "Baunilha, Notas Cremosas", profile: "Doce, aconchegante e viciante. Simplicidade que encanta.", originalPrice: 250 },
-            { code: "F032", name: "Pure Seduction", brand: "Victoria's Secret", type: "Frutado Floral", notes: "Ameixa, Frésia, Baunilha", profile: "Sedutor, doce e envolvente. Tentação pura.", originalPrice: 260 },
-            { code: "F033", name: "Amber Romance", brand: "Victoria's Secret", type: "Oriental", notes: "Âmbar, Baunilha, Notas Quentes", profile: "Quente, romântico e sensual. Noites de amor.", originalPrice: 260 },
-            { code: "F034", name: "Aqua Kiss", brand: "D&G", type: "Floral Aquático", notes: "Margarida, Notas Aquáticas, Almíscar", profile: "Fresco, leve e beijável. Beijo de água.", originalPrice: 480 },
-            { code: "F035", name: "Temptation", brand: "Paris Hilton", type: "Floral Frutado", notes: "Pêssego, Jasmim, Baunilha", profile: "Tentador, feminino e marcante.", originalPrice: 240 },
-            { code: "F036", name: "Good Girl Velvet Fatale", brand: "Carolina Herrera", type: "Floral Oriental", notes: "Café, Cacau, Rosa Negra, Patchouli", profile: "Sombrio, sensual e fatal. A versão mais ousada da Good Girl.", originalPrice: 950 },
-            { code: "F037", name: "Musumam White", brand: "Al Haramain", type: "Floral Almiscarado", notes: "Almíscar Branco, Florais, Baunilha", profile: "Puro, limpo e elegante. Brancura em forma de perfume.", originalPrice: 340 },
-            { code: "F038", name: "Yum Yum Eclaire", brand: "Lattafa", type: "Gourmand", notes: "Baunilha, Caramelo, Notas Doces", profile: "Delicioso, doce e viciante. Sobremesa em perfume.", originalPrice: 270 },
-            { code: "F039", name: "Amnia", brand: "Lattafa", type: "Floral Oriental", notes: "Florais, Baunilha, Especiarias", profile: "Encantador, feminino e marcante.", originalPrice: 280 },
-            { code: "F040", name: "Atheeri", brand: "Lattafa", type: "Oriental", notes: "Âmbar, Baunilha, Oud", profile: "Luxuoso, quente e sofisticado. Joia oriental.", originalPrice: 310 },
-            { code: "F041", name: "Neroli Portofino", brand: "Tom Ford", type: "Cítrico Aromático", notes: "Neroli, Bergamota, Limão, Lavanda", profile: "Fresco, elegante e mediterrâneo. Verão italiano.", originalPrice: 1800 },
-            { code: "F042", name: "Lapidus Woman", brand: "Ted Lapidus", type: "Floral Oriental", notes: "Frutas, Florais, Baunilha, Âmbar", profile: "Clássico, poderoso e marcante. Ícone dos anos 90.", originalPrice: 380 }
+            { code: "F001", name: "Lily Love", brand: "Animale", type: "Floral", notes: "Lírio, Jasmim, Notas Verdes", profile: "Feminino, delicado e romântico. Perfeito para o dia a dia.", originalPrice: 189 },
+            { code: "F002", name: "Delina", brand: "Parfums de Marly", type: "Floral Frutado", notes: "Ruibarbo, Lichia, Rosa Turca, Baunilha", profile: "Elegante, sofisticado e marcante. Um dos mais desejados do mundo.", originalPrice: 1450 },
+            { code: "F003", name: "Midnight Fantasy", brand: "Britney Spears", type: "Floral Frutado", notes: "Cereja, Orquídea, Baunilha, Almíscar", profile: "Sensual, misterioso e noturno. Para noites especiais.", originalPrice: 180 },
+            { code: "F004", name: "Yara", brand: "Lattafa", type: "Floral Frutado", notes: "Morango, Orquídea, Baunilha, Madeira", profile: "Doce, cremoso e envolvente. Sensação do momento!", originalPrice: 220 },
+            { code: "F005", name: "Royal Amber", brand: "Lattafa", type: "Oriental Ambarado", notes: "Âmbar, Baunilha, Especiarias", profile: "Luxuoso, quente e marcante. Perfume de rainha.", originalPrice: 280 },
+            { code: "F006", name: "Fakhar", brand: "Lattafa", type: "Floral Amadeirado", notes: "Rosa, Patchouli, Baunilha", profile: "Elegante e sofisticado. Versátil para todas as ocasiões.", originalPrice: 250 },
+            { code: "F007", name: "Angel Nova", brand: "Mugler", type: "Floral Frutado", notes: "Framboesa, Lichia, Rosa, Patchouli", profile: "Moderno, vibrante e angelical. Energia pura!", originalPrice: 580 },
+            { code: "F008", name: "Oriana", brand: "Parfums de Marly", type: "Floral Frutado", notes: "Mandarina, Pêssego, Jasmim, Baunilha", profile: "Radiante, feminino e luxuoso. Brilho em forma de perfume.", originalPrice: 1380 },
+            { code: "F009", name: "Haya", brand: "Lattafa", type: "Floral Oriental", notes: "Flor de Laranjeira, Jasmim, Baunilha", profile: "Doce, floral e encantador. Perfume da alegria.", originalPrice: 240 },
+            { code: "F010", name: "Sabah Al Ward", brand: "Lattafa", type: "Floral", notes: "Rosa, Jasmim, Almíscar", profile: "Floral puro, romântico e atemporal.", originalPrice: 260 },
+            { code: "F011", name: "Gucci Guilty", brand: "Gucci", type: "Floral Oriental", notes: "Mandarina, Pêssego, Jasmim, Patchouli", profile: "Sedutor, moderno e ousado. Para mulheres que provocam.", originalPrice: 680 },
+            { code: "F012", name: "Divine", brand: "Jean Paul Gaultier", type: "Floral Oriental", notes: "Íris, Baunilha, Âmbar", profile: "Divino, sensual e marcante. Essência de deusa.", originalPrice: 620 },
+            { code: "F013", name: "Princess", brand: "Marina de Bourbon", type: "Floral Frutado", notes: "Framboesa, Rosa, Baunilha", profile: "Real, feminino e encantador. Para princesas modernas.", originalPrice: 380 },
+            { code: "F014", name: "Baccarat Rouge 540", brand: "MFK", type: "Âmbar Floral", notes: "Açafrão, Jasmim, Cedro, Âmbar", profile: "Luxuoso, sofisticado e marcante. O perfume dos milionários!", originalPrice: 2890 },
+            { code: "F015", name: "Durrat Al Aroos", brand: "Al Haramain", type: "Floral Oriental", notes: "Rosa, Oud, Almíscar, Baunilha", profile: "Exótico, luxuoso e oriental. Joia da Arábia.", originalPrice: 340 },
+            { code: "F016", name: "J'adore L'Or", brand: "Dior", type: "Floral", notes: "Rosa de Grasse, Jasmim, Ylang-Ylang", profile: "Ouro líquido. O ápice da feminilidade e sofisticação.", originalPrice: 1250 },
+            { code: "F017", name: "Good Girl Sparkling Ice", brand: "Carolina Herrera", type: "Floral Oriental", notes: "Café, Cacau, Jasmim, Notas Geladas", profile: "Poderosa, sensual e refrescante. A boa girl na versão ice.", originalPrice: 720 },
+            { code: "F018", name: "La Vie Est Belle Intensément", brand: "Lancôme", type: "Floral Gourmand", notes: "Íris, Patchouli, Baunilha, Praliné", profile: "Doce, elegante e intenso. Celebra a felicidade da vida.", originalPrice: 890 },
+            { code: "F019", name: "Gucci Bloom", brand: "Gucci", type: "Floral Branco", notes: "Tuberosa, Jasmim, Nardo", profile: "Autêntico, espontâneo e florescente. Natureza em perfume.", originalPrice: 680 },
+            { code: "F020", name: "Erba Pura", brand: "Xerjoff", type: "Frutado Oriental", notes: "Frutas Cítricas, Baunilha, Almíscar Branco", profile: "Explosão de frutas, luxuoso e marcante. Exclusividade pura.", originalPrice: 2450 },
+            { code: "F021", name: "212 NYC", brand: "Carolina Herrera", type: "Floral Oriental", notes: "Gardênia, Almíscar, Pimenta Rosa", profile: "Urbano, moderno e sedutor. A essência de Nova York.", originalPrice: 560 },
+            { code: "F022", name: "Very Good Girl", brand: "Carolina Herrera", type: "Floral Frutado", notes: "Lichia, Rosa, Baunilha", profile: "Audaz, feminina e irresistível. A versão moderna da Good Girl.", originalPrice: 750 },
+            { code: "F023", name: "Crush", brand: "Victoria's Secret", type: "Floral Frutado", notes: "Framboesa, Rosa, Almíscar", profile: "Jovem, vibrante e apaixonante. Paixão em forma de perfume.", originalPrice: 250 },
+            { code: "F024", name: "Prada Paradoxe", brand: "Prada", type: "Floral Amadeirado", notes: "Neroli, Bergamota, Baunilha, Âmbar", profile: "Moderno, intenso e envolvente. Para mulheres que quebram padrões.", originalPrice: 780 },
+            { code: "F025", name: "La Belle", brand: "Jean Paul Gaultier", type: "Floral Gourmand", notes: "Pêra, Baunilha, Madeira", profile: "Sedutora, doce e marcante. A bela em forma de fragrância.", originalPrice: 650 },
+            { code: "F026", name: "Bombshell", brand: "Victoria's Secret", type: "Floral Frutado", notes: "Maracujá, Toranja, Orquídea, Baunilha", profile: "Fresco, vibrante e sedutor. Energia pura!", originalPrice: 250 },
+            { code: "F027", name: "Secret Charm", brand: "Victoria's Secret", type: "Floral Frutado", notes: "Framboesa, Flor de Laranjeira, Baunilha", profile: "Misterioso, charmoso e feminino.", originalPrice: 240 },
+            { code: "F028", name: "Strawberries & Champagne", brand: "Victoria's Secret", type: "Frutado", notes: "Morango, Champagne, Notas Doces", profile: "Festivo, doce e sofisticado. Celebração em perfume.", originalPrice: 250 },
+            { code: "F029", name: "Pear Glacé", brand: "Victoria's Secret", type: "Frutado Floral", notes: "Pêra, Notas Geladas, Florais", profile: "Fresco, frutado e elegante. Sofisticação gelada.", originalPrice: 240 },
+            { code: "F030", name: "Coconut Passion", brand: "Victoria's Secret", type: "Oriental", notes: "Coco, Baunilha, Notas Tropicais", profile: "Tropical, quente e apaixonante. Férias em perfume.", originalPrice: 240 },
+            { code: "F031", name: "Bare Vanilla", brand: "Victoria's Secret", type: "Gourmand", notes: "Baunilha, Notas Cremosas", profile: "Doce, aconchegante e viciante. Simplicidade que encanta.", originalPrice: 230 },
+            { code: "F032", name: "Pure Seduction", brand: "Victoria's Secret", type: "Frutado Floral", notes: "Ameixa, Frésia, Baunilha", profile: "Sedutor, doce e envolvente. Tentação pura.", originalPrice: 240 },
+            { code: "F033", name: "Amber Romance", brand: "Victoria's Secret", type: "Oriental", notes: "Âmbar, Baunilha, Notas Quentes", profile: "Quente, romântico e sensual. Noites de amor.", originalPrice: 240 },
+            { code: "F034", name: "Aqua Kiss", brand: "D&G", type: "Floral Aquático", notes: "Margarida, Notas Aquáticas, Almíscar", profile: "Fresco, leve e beijável. Beijo de água.", originalPrice: 420 },
+            { code: "F035", name: "Temptation", brand: "Paris Hilton", type: "Floral Frutado", notes: "Pêssego, Jasmim, Baunilha", profile: "Tentador, feminino e marcante.", originalPrice: 220 },
+            { code: "F036", name: "Good Girl Velvet Fatale", brand: "Carolina Herrera", type: "Floral Oriental", notes: "Café, Cacau, Rosa Negra, Patchouli", profile: "Sombrio, sensual e fatal. A versão mais ousada da Good Girl.", originalPrice: 820 },
+            { code: "F037", name: "Musumam White", brand: "Al Haramain", type: "Floral Almiscarado", notes: "Almíscar Branco, Florais, Baunilha", profile: "Puro, limpo e elegante. Brancura em forma de perfume.", originalPrice: 310 },
+            { code: "F038", name: "Yum Yum Eclaire", brand: "Lattafa", type: "Gourmand", notes: "Baunilha, Caramelo, Notas Doces", profile: "Delicioso, doce e viciante. Sobremesa em perfume.", originalPrice: 250 },
+            { code: "F039", name: "Amnia", brand: "Lattafa", type: "Floral Oriental", notes: "Florais, Baunilha, Especiarias", profile: "Encantador, feminino e marcante.", originalPrice: 260 },
+            { code: "F040", name: "Atheeri", brand: "Lattafa", type: "Oriental", notes: "Âmbar, Baunilha, Oud", profile: "Luxuoso, quente e sofisticado. Joia oriental.", originalPrice: 290 },
+            { code: "F041", name: "Neroli Portofino", brand: "Tom Ford", type: "Cítrico Aromático", notes: "Neroli, Bergamota, Limão, Lavanda", profile: "Fresco, elegante e mediterrâneo. Verão italiano.", originalPrice: 1650 },
+            { code: "F042", name: "Lapidus Woman", brand: "Ted Lapidus", type: "Floral Oriental", notes: "Frutas, Florais, Baunilha, Âmbar", profile: "Clássico, poderoso e marcante. Ícone dos anos 90.", originalPrice: 340 }
         ];
 
         const perfumesMasculinos = [
-            { code: "M001", name: "Assad", brand: "Lattafa", type: "Amadeirado Especiariado", notes: "Canela, Noz-moscada, Cedro, Baunilha", profile: "Poderoso, quente e marcante. Inspirado no Sauvage Elixir.", originalPrice: 280 },
-            { code: "M002", name: "Fuel for Life", brand: "Diesel", type: "Aromático Fougère", notes: "Anis, Lavanda, Grapefruit, Cedro", profile: "Energético, fresco e masculino. Combustível para a vida.", originalPrice: 450 },
-            { code: "M003", name: "Club de Nuit", brand: "Armaf", type: "Chipre Amadeirado", notes: "Limão, Abacaxi, Bétula, Almíscar", profile: "Fresco, sofisticado e marcante. Inspirado no Aventus.", originalPrice: 320 },
-            { code: "M004", name: "Wazeer", brand: "Al Noble", type: "Amadeirado Oriental", notes: "Oud, Especiarias, Baunilha", profile: "Luxuoso, intenso e oriental. Poder em forma de perfume.", originalPrice: 380 },
-            { code: "M005", name: "Fakhar Gold", brand: "Lattafa", type: "Amadeirado Aromático", notes: "Maçã, Lavanda, Baunilha, Cedro", profile: "Dourado, elegante e versátil. Brilho masculino.", originalPrice: 290 },
-            { code: "M006", name: "One Million Gold", brand: "Paco Rabanne", type: "Amadeirado Especiariado", notes: "Grapefruit, Canela, Couro, Âmbar", profile: "Luxo, poder e sensualidade. Ouro líquido!", originalPrice: 850 },
-            { code: "M007", name: "Oud for Greatness", brand: "Initio", type: "Amadeirado Oriental", notes: "Oud, Açafrão, Noz-moscada, Patchouli", profile: "Grandioso, luxuoso e marcante. Grandeza em perfume.", originalPrice: 2200 },
-            { code: "M008", name: "Invictus Parfum", brand: "Paco Rabanne", type: "Amadeirado Aquático", notes: "Notas Marinhas, Louro, Benjoim", profile: "Poder, vitória e frescor. O perfume do campeão!", originalPrice: 750 },
-            { code: "M009", name: "Lapidus", brand: "Ted Lapidus", type: "Amadeirado Aromático", notes: "Lavanda, Sálvia, Mel, Cedro", profile: "Clássico, poderoso e marcante. Lenda dos anos 90.", originalPrice: 380 },
-            { code: "M010", name: "Myslf", brand: "YSL", type: "Floral Amadeirado", notes: "Flor de Laranjeira, Bergamota, Patchouli", profile: "Moderno, elegante e versátil. Eu mesmo em perfume.", originalPrice: 780 },
-            { code: "M011", name: "Phantom Parfum", brand: "Paco Rabanne", type: "Amadeirado Lavanda", notes: "Lavanda, Baunilha, Vetiver", profile: "Misterioso, intenso e marcante. O fantoma sedutor.", originalPrice: 720 },
-            { code: "M012", name: "Dylan Blue", brand: "Versace", type: "Aromático Fougère", notes: "Bergamota, Figo, Patchouli, Incenso", profile: "Fresco, elegante e versátil. Para todas as ocasiões!", originalPrice: 650 },
-            { code: "M013", name: "Polo Red", brand: "Ralph Lauren", type: "Amadeirado Aromático", notes: "Grapefruit, Café, Madeira Vermelha", profile: "Energético, esportivo e moderno. Ação e adrenalina!", originalPrice: 550 },
-            { code: "M014", name: "Le Male Elixir", brand: "Jean Paul Gaultier", type: "Amadeirado Especiariado", notes: "Lavanda, Baunilha, Âmbar, Mel", profile: "Intenso, sedutor e marcante. Masculinidade pura!", originalPrice: 700 },
-            { code: "M015", name: "Fakhar Black", brand: "Lattafa", type: "Amadeirado Aromático", notes: "Maçã, Lavanda, Baunilha", profile: "Elegante, noturno e sofisticado. Versão black do sucesso.", originalPrice: 290 },
-            { code: "M016", name: "One Million Lucky", brand: "Paco Rabanne", type: "Amadeirado", notes: "Avelã, Mel, Cedro, Patchouli", profile: "Sortudo, doce e marcante. A sorte em forma de perfume.", originalPrice: 820 },
-            { code: "M017", name: "Wanted by Night", brand: "Azzaro", type: "Amadeirado Especiariado", notes: "Canela, Cardamomo, Tabaco, Baunilha", profile: "Noturno, sedutor e perigoso. Desejado à noite.", originalPrice: 580 },
-            { code: "M018", name: "Boss Bottled Infinite", brand: "Hugo Boss", type: "Aromático Amadeirado", notes: "Alecrim, Sálvia, Madeira de Cedro", profile: "Infinito, elegante e confiante. O homem sem limites.", originalPrice: 620 },
-            { code: "M019", name: "Aventus", brand: "Creed", type: "Chipre Frutado", notes: "Abacaxi, Bergamota, Patchouli, Baunilha", profile: "Sofisticação máxima. O perfume dos CEOs e líderes!", originalPrice: 3500 },
-            { code: "M020", name: "CH Men", brand: "Carolina Herrera", type: "Amadeirado Fresco", notes: "Notas Verdes, Grapefruit, Baunilha", profile: "Urbano, fresco e moderno. O homem Carolina Herrera.", originalPrice: 580 },
-            { code: "M021", name: "Asad Bourbon", brand: "Lattafa", type: "Amadeirado Oriental", notes: "Canela, Baunilha Bourbon, Cedro", profile: "Quente, sofisticado e marcante. Versão bourbon do Assad.", originalPrice: 300 },
-            { code: "M022", name: "Ameer Al Oud", brand: "Al Noble", type: "Amadeirado Oriental", notes: "Oud, Baunilha, Especiarias", profile: "Real, luxuoso e oriental. O príncipe do oud.", originalPrice: 420 },
-            { code: "M023", name: "Lacoste Black", brand: "Lacoste", type: "Amadeirado Especiariado", notes: "Pimenta, Cardamomo, Cedro, Vetiver", profile: "Misterioso, intenso e elegante. Noite e sedução!", originalPrice: 450 }
+            { code: "M001", name: "Assad", brand: "Lattafa", type: "Amadeirado Especiariado", notes: "Canela, Noz-moscada, Cedro, Baunilha", profile: "Poderoso, quente e marcante. Inspirado no Sauvage Elixir.", originalPrice: 260 },
+            { code: "M002", name: "Fuel for Life", brand: "Diesel", type: "Aromático Fougère", notes: "Anis, Lavanda, Grapefruit, Cedro", profile: "Energético, fresco e masculino. Combustível para a vida.", originalPrice: 420 },
+            { code: "M003", name: "Club de Nuit", brand: "Armaf", type: "Chipre Amadeirado", notes: "Limão, Abacaxi, Bétula, Almíscar", profile: "Fresco, sofisticado e marcante. Inspirado no Aventus.", originalPrice: 290 },
+            { code: "M004", name: "Wazeer", brand: "Al Noble", type: "Amadeirado Oriental", notes: "Oud, Especiarias, Baunilha", profile: "Luxuoso, intenso e oriental. Poder em forma de perfume.", originalPrice: 350 },
+            { code: "M005", name: "Fakhar Gold", brand: "Lattafa", type: "Amadeirado Aromático", notes: "Maçã, Lavanda, Baunilha, Cedro", profile: "Dourado, elegante e versátil. Brilho masculino.", originalPrice: 270 },
+            { code: "M006", name: "One Million Gold", brand: "Paco Rabanne", type: "Amadeirado Especiariado", notes: "Grapefruit, Canela, Couro, Âmbar", profile: "Luxo, poder e sensualidade. Ouro líquido!", originalPrice: 780 },
+            { code: "M007", name: "Oud for Greatness", brand: "Initio", type: "Amadeirado Oriental", notes: "Oud, Açafrão, Noz-moscada, Patchouli", profile: "Grandioso, luxuoso e marcante. Grandeza em perfume.", originalPrice: 1980 },
+            { code: "M008", name: "Invictus Parfum", brand: "Paco Rabanne", type: "Amadeirado Aquático", notes: "Notas Marinhas, Louro, Benjoim", profile: "Poder, vitória e frescor. O perfume do campeão!", originalPrice: 680 },
+            { code: "M009", name: "Lapidus", brand: "Ted Lapidus", type: "Amadeirado Aromático", notes: "Lavanda, Sálvia, Mel, Cedro", profile: "Clássico, poderoso e marcante. Lenda dos anos 90.", originalPrice: 350 },
+            { code: "M010", name: "Myslf", brand: "YSL", type: "Floral Amadeirado", notes: "Flor de Laranjeira, Bergamota, Patchouli", profile: "Moderno, elegante e versátil. Eu mesmo em perfume.", originalPrice: 720 },
+            { code: "M011", name: "Phantom Parfum", brand: "Paco Rabanne", type: "Amadeirado Lavanda", notes: "Lavanda, Baunilha, Vetiver", profile: "Misterioso, intenso e marcante. O fantoma sedutor.", originalPrice: 650 },
+            { code: "M012", name: "Dylan Blue", brand: "Versace", type: "Aromático Fougère", notes: "Bergamota, Figo, Patchouli, Incenso", profile: "Fresco, elegante e versátil. Para todas as ocasiões!", originalPrice: 590 },
+            { code: "M013", name: "Polo Red", brand: "Ralph Lauren", type: "Amadeirado Aromático", notes: "Grapefruit, Café, Madeira Vermelha", profile: "Energético, esportivo e moderno. Ação e adrenalina!", originalPrice: 490 },
+            { code: "M014", name: "Le Male Elixir", brand: "Jean Paul Gaultier", type: "Amadeirado Especiariado", notes: "Lavanda, Baunilha, Âmbar, Mel", profile: "Intenso, sedutor e marcante. Masculinidade pura!", originalPrice: 640 },
+            { code: "M015", name: "Fakhar Black", brand: "Lattafa", type: "Amadeirado Aromático", notes: "Maçã, Lavanda, Baunilha", profile: "Elegante, noturno e sofisticado. Versão black do sucesso.", originalPrice: 270 },
+            { code: "M016", name: "One Million Lucky", brand: "Paco Rabanne", type: "Amadeirado", notes: "Avelã, Mel, Cedro, Patchouli", profile: "Sortudo, doce e marcante. A sorte em forma de perfume.", originalPrice: 750 },
+            { code: "M017", name: "Wanted by Night", brand: "Azzaro", type: "Amadeirado Especiariado", notes: "Canela, Cardamomo, Tabaco, Baunilha", profile: "Noturno, sedutor e perigoso. Desejado à noite.", originalPrice: 520 },
+            { code: "M018", name: "Boss Bottled Infinite", brand: "Hugo Boss", type: "Aromático Amadeirado", notes: "Alecrim, Sálvia, Madeira de Cedro", profile: "Infinito, elegante e confiante. O homem sem limites.", originalPrice: 560 },
+            { code: "M019", name: "Aventus", brand: "Creed", type: "Chipre Frutado", notes: "Abacaxi, Bergamota, Patchouli, Baunilha", profile: "Sofisticação máxima. O perfume dos CEOs e líderes!", originalPrice: 3200 },
+            { code: "M020", name: "CH Men", brand: "Carolina Herrera", type: "Amadeirado Fresco", notes: "Notas Verdes, Grapefruit, Baunilha", profile: "Urbano, fresco e moderno. O homem Carolina Herrera.", originalPrice: 520 },
+            { code: "M021", name: "Asad Bourbon", brand: "Lattafa", type: "Amadeirado Oriental", notes: "Canela, Baunilha Bourbon, Cedro", profile: "Quente, sofisticado e marcante. Versão bourbon do Assad.", originalPrice: 280 },
+            { code: "M022", name: "Ameer Al Oud", brand: "Al Noble", type: "Amadeirado Oriental", notes: "Oud, Baunilha, Especiarias", profile: "Real, luxuoso e oriental. O príncipe do oud.", originalPrice: 380 },
+            { code: "M023", name: "Lacoste Black", brand: "Lacoste", type: "Amadeirado Especiariado", notes: "Pimenta, Cardamomo, Cedro, Vetiver", profile: "Misterioso, intenso e elegante. Noite e sedução!", originalPrice: 410 }
         ];
 
         // FUNÇÃO DE PREÇO
@@ -848,7 +854,7 @@
                             <div class="our-price">R$ ${precoContratipo.toFixed(2).replace('.', ',')} <small>ou ${parcelas}</small></div>
                         </div>
                         <button class="buy-button" onclick="buyProduct('${perfume.name} - ${perfume.brand}', '${perfume.code}', ${precoContratipo})">
-                            📱 Comprar pelo WhatsApp
+                             Comprar pelo WhatsApp
                         </button>
                     </div>
                 </div>
@@ -877,7 +883,7 @@
 
         // COMPRAR
         function buyProduct(nome, codigo, preco) {
-            const mensagem = `Olá! 👋\n\nVi o site Perfumes Itabuna e quero comprar:\n\n🌟 *Produto:* ${nome}\n🔖 *Código:* ${codigo}\n💰 *Preço:* R$ ${preco.toFixed(2).replace('.', ',')}\n\nGostaria de saber as formas de pagamento (PIX, cartão, dinheiro) e como funciona a entrega em Itabuna.\n\nObrigado(a)! 😊`;
+            const mensagem = `Olá! \n\nVi o site Perfumes Itabuna e quero comprar:\n\n🌟 *Produto:* ${nome}\n🔖 *Código:* ${codigo}\n💰 *Preço:* R$ ${preco.toFixed(2).replace('.', ',')}\n\nGostaria de saber as formas de pagamento (PIX, cartão, dinheiro) e como funciona a entrega em Itabuna.\n\nObrigado(a)! 😊`;
             const url = `https://wa.me/5573991281765?text=${encodeURIComponent(mensagem)}`;
             window.open(url, '_blank');
         }
