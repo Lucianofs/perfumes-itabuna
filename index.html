@@ -101,7 +101,7 @@
             border: 1px solid var(--gold);
         }
 
-        /* URGENCY BANNER - CORRIGIDO */
+        /* URGENCY BANNER - CORRIGIDO PARA MOBILE */
         .urgency-banner {
             margin-top: 82px;
             background: linear-gradient(90deg, var(--accent), #c0392b, var(--accent));
@@ -109,14 +109,17 @@
             animation: slideBanner 3s linear infinite;
             color: white;
             text-align: center;
-            padding: 15px 10px;
+            padding: 12px 15px;
             font-weight: bold;
-            font-size: 0.95rem;
-            min-height: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            font-size: 1rem;
             line-height: 1.4;
+            display: block;
+            width: 100%;
+        }
+
+        .urgency-banner span {
+            display: inline-block;
+            width: 100%;
         }
 
         @keyframes slideBanner {
@@ -580,7 +583,7 @@
             font-size: 1.1rem;
         }
 
-        /* RESPONSIVE */
+        /* RESPONSIVE - CORRIGIDO */
         @media (max-width: 768px) {
             .hero h1 { font-size: 1.8rem; }
             .hero p { font-size: 1.1rem; }
@@ -590,7 +593,22 @@
             .tab-content.active { grid-template-columns: 1fr; }
             .header-content { justify-content: center; }
             .logo-text { font-size: 1.2rem; }
-            .urgency-banner { font-size: 0.85rem; padding: 12px 8px; }
+            
+            /* Banner mobile - GARANTIDO VISÍVEL */
+            .urgency-banner {
+                font-size: 0.9rem;
+                padding: 10px 8px;
+                line-height: 1.3;
+                margin-top: 75px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .urgency-banner {
+                font-size: 0.85rem;
+                padding: 8px 5px;
+                line-height: 1.2;
+            }
         }
     </style>
 </head>
@@ -609,7 +627,7 @@
 
     <!-- URGENCY BANNER - CORRIGIDO -->
     <div class="urgency-banner">
-        🔥 PERFUMES IMPORTADOS ATÉ 80% MAIS BARATO! ENTREGA RÁPIDA EM ITABUNA! 🔥
+        <span>🔥 PERFUMES IMPORTADOS ATÉ 80% MAIS BARATO! ENTREGA RÁPIDA EM ITABUNA! 🔥</span>
     </div>
 
     <!-- HERO -->
@@ -628,14 +646,14 @@
             </div>
 
             <a href="https://wa.me/5573991281765?text=Olá!%20Gostaria%20de%20conhecer%20os%20perfumes%20contratipo%20disponíveis%20em%20Itabuna" class="cta-button" target="_blank">
-                 Ver Catálogo no WhatsApp
+                📱 Ver Catálogo no WhatsApp
             </a>
         </div>
     </section>
 
     <!-- COUNTER -->
     <div class="counter-bar">
-        🎯 +60 FRAGRÂNCIAS DISPONÍVEIS | 💳 PARCELAMOS NO CARTÃO | 🚚 ENTREGA EM ITABUNA
+         +60 FRAGRÂNCIAS DISPONÍVEIS | 💳 PARCELAMOS NO CARTÃO | 🚚 ENTREGA EM ITABUNA
     </div>
 
     <!-- BENEFITS -->
@@ -671,7 +689,7 @@
         
         <div class="tabs">
             <button class="tab-button active" onclick="showTab('femininos')">👩 Femininos (<span id="count-fem">0</span>)</button>
-            <button class="tab-button" onclick="showTab('masculinos')">👨 Masculinos (<span id="count-masc">0</span>)</button>
+            <button class="tab-button" onclick="showTab('masculinos')"> Masculinos (<span id="count-masc">0</span>)</button>
         </div>
 
         <div id="femininos" class="tab-content active"></div>
@@ -734,7 +752,7 @@
     </a>
 
     <script>
-        // DADOS DOS PERFUMES - PREÇOS REAIS DE MERCADO (Outubro 2026)
+        // DADOS DOS PERFUMES - EXTRAÍDOS DOS PDFs
         const perfumesFemininos = [
             { code: "F001", name: "Lily Love", brand: "Animale", type: "Floral", notes: "Lírio, Jasmim, Notas Verdes", profile: "Feminino, delicado e romântico. Perfeito para o dia a dia.", originalPrice: 189 },
             { code: "F002", name: "Delina", brand: "Parfums de Marly", type: "Floral Frutado", notes: "Ruibarbo, Lichia, Rosa Turca, Baunilha", profile: "Elegante, sofisticado e marcante. Um dos mais desejados do mundo.", originalPrice: 1450 },
@@ -820,7 +838,6 @@
             const desconto = Math.round((1 - precoContratipo / perfume.originalPrice) * 100);
             const parcelas = precoContratipo >= 100 ? "3x no cartão" : "2x no cartão";
             
-            // Truncar nome longo para o placeholder ficar bonito
             let nomeOriginal = perfume.name;
             if (nomeOriginal.length > 14) {
                 nomeOriginal = nomeOriginal.substring(0, 14) + "..";
@@ -854,7 +871,7 @@
                             <div class="our-price">R$ ${precoContratipo.toFixed(2).replace('.', ',')} <small>ou ${parcelas}</small></div>
                         </div>
                         <button class="buy-button" onclick="buyProduct('${perfume.name} - ${perfume.brand}', '${perfume.code}', ${precoContratipo})">
-                             Comprar pelo WhatsApp
+                            📱 Comprar pelo WhatsApp
                         </button>
                     </div>
                 </div>
@@ -883,7 +900,7 @@
 
         // COMPRAR
         function buyProduct(nome, codigo, preco) {
-            const mensagem = `Olá! \n\nVi o site Perfumes Itabuna e quero comprar:\n\n🌟 *Produto:* ${nome}\n🔖 *Código:* ${codigo}\n💰 *Preço:* R$ ${preco.toFixed(2).replace('.', ',')}\n\nGostaria de saber as formas de pagamento (PIX, cartão, dinheiro) e como funciona a entrega em Itabuna.\n\nObrigado(a)! 😊`;
+            const mensagem = `Olá! 👋\n\nVi o site Perfumes Itabuna e quero comprar:\n\n🌟 *Produto:* ${nome}\n🔖 *Código:* ${codigo}\n💰 *Preço:* R$ ${preco.toFixed(2).replace('.', ',')}\n\nGostaria de saber as formas de pagamento (PIX, cartão, dinheiro) e como funciona a entrega em Itabuna.\n\nObrigado(a)! 😊`;
             const url = `https://wa.me/5573991281765?text=${encodeURIComponent(mensagem)}`;
             window.open(url, '_blank');
         }
