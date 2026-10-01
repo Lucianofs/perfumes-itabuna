@@ -101,9 +101,10 @@
             border: 1px solid var(--gold);
         }
 
-        /* URGENCY BANNER - CORRIGIDO PARA MOBILE */
+        /* URGENCY BANNER - SOLUÇÃO DEFINITIVA */
         .urgency-banner {
-            margin-top: 82px;
+            position: relative;
+            z-index: 999;
             background: linear-gradient(90deg, var(--accent), #c0392b, var(--accent));
             background-size: 200% 100%;
             animation: slideBanner 3s linear infinite;
@@ -115,11 +116,7 @@
             line-height: 1.4;
             display: block;
             width: 100%;
-        }
-
-        .urgency-banner span {
-            display: inline-block;
-            width: 100%;
+            /* margin-top será definido via JavaScript */
         }
 
         @keyframes slideBanner {
@@ -583,7 +580,7 @@
             font-size: 1.1rem;
         }
 
-        /* RESPONSIVE - CORRIGIDO */
+        /* RESPONSIVE */
         @media (max-width: 768px) {
             .hero h1 { font-size: 1.8rem; }
             .hero p { font-size: 1.1rem; }
@@ -593,41 +590,30 @@
             .tab-content.active { grid-template-columns: 1fr; }
             .header-content { justify-content: center; }
             .logo-text { font-size: 1.2rem; }
-            
-            /* Banner mobile - GARANTIDO VISÍVEL */
-            .urgency-banner {
-                font-size: 0.9rem;
-                padding: 10px 8px;
-                line-height: 1.3;
-                margin-top: 75px;
-            }
+            .urgency-banner { font-size: 0.9rem; padding: 10px 8px; }
         }
 
         @media (max-width: 480px) {
-            .urgency-banner {
-                font-size: 0.85rem;
-                padding: 8px 5px;
-                line-height: 1.2;
-            }
+            .urgency-banner { font-size: 0.85rem; padding: 8px 5px; }
         }
     </style>
 </head>
 <body>
 
     <!-- HEADER -->
-    <header>
+    <header id="mainHeader">
         <div class="header-content">
             <div class="logo-container">
-                <img src="perfumes-itabuna-logo.png" alt="Perfumes Itabuna Logo - Contratipos Importados" onerror="this.style.display='none'">
+                <img src="perfumes-itabuna-logo.png" alt="Perfumes Itabuna Logo" onerror="this.style.display='none'">
                 <a href="#" class="logo-text">Perfumes <span>Itabuna</span></a>
             </div>
             <div class="location">📍 Itabuna - Bahia</div>
         </div>
     </header>
 
-    <!-- URGENCY BANNER - CORRIGIDO -->
-    <div class="urgency-banner">
-        <span>🔥 PERFUMES IMPORTADOS ATÉ 80% MAIS BARATO! ENTREGA RÁPIDA EM ITABUNA! 🔥</span>
+    <!-- URGENCY BANNER -->
+    <div class="urgency-banner" id="urgencyBanner">
+        🔥 PERFUMES IMPORTADOS ATÉ 80% MAIS BARATO! ENTREGA RÁPIDA EM ITABUNA! 🔥
     </div>
 
     <!-- HERO -->
@@ -653,7 +639,7 @@
 
     <!-- COUNTER -->
     <div class="counter-bar">
-         +60 FRAGRÂNCIAS DISPONÍVEIS | 💳 PARCELAMOS NO CARTÃO | 🚚 ENTREGA EM ITABUNA
+        🎯 +60 FRAGRÂNCIAS DISPONÍVEIS | 💳 PARCELAMOS NO CARTÃO | 🚚 ENTREGA EM ITABUNA
     </div>
 
     <!-- BENEFITS -->
@@ -752,7 +738,24 @@
     </a>
 
     <script>
-        // DADOS DOS PERFUMES - EXTRAÍDOS DOS PDFs
+        // ========== SOLUÇÃO DEFINITIVA DO BANNER ==========
+        // Calcula a altura real do header e posiciona o banner corretamente
+        function ajustarBanner() {
+            const header = document.getElementById('mainHeader');
+            const banner = document.getElementById('urgencyBanner');
+            const alturaHeader = header.offsetHeight;
+            banner.style.marginTop = alturaHeader + 'px';
+        }
+        
+        // Executa ao carregar e ao redimensionar a tela
+        window.addEventListener('load', ajustarBanner);
+        window.addEventListener('resize', ajustarBanner);
+        // Executa também após um pequeno delay para garantir
+        setTimeout(ajustarBanner, 100);
+        setTimeout(ajustarBanner, 500);
+        // ========== FIM DA SOLUÇÃO ==========
+
+        // DADOS DOS PERFUMES
         const perfumesFemininos = [
             { code: "F001", name: "Lily Love", brand: "Animale", type: "Floral", notes: "Lírio, Jasmim, Notas Verdes", profile: "Feminino, delicado e romântico. Perfeito para o dia a dia.", originalPrice: 189 },
             { code: "F002", name: "Delina", brand: "Parfums de Marly", type: "Floral Frutado", notes: "Ruibarbo, Lichia, Rosa Turca, Baunilha", profile: "Elegante, sofisticado e marcante. Um dos mais desejados do mundo.", originalPrice: 1450 },
@@ -824,7 +827,6 @@
             { code: "M023", name: "Lacoste Black", brand: "Lacoste", type: "Amadeirado Especiariado", notes: "Pimenta, Cardamomo, Cedro, Vetiver", profile: "Misterioso, intenso e elegante. Noite e sedução!", originalPrice: 410 }
         ];
 
-        // FUNÇÃO DE PREÇO
         function calcularPreco(precoOriginal) {
             let metade = precoOriginal * 0.5;
             if (metade < 80) return 80;
@@ -832,8 +834,7 @@
             return metade;
         }
 
-        // GERAR CARD DE PERFUME
-        function criarCard(perfume, genero) {
+        function criarCard(perfume) {
             const precoContratipo = calcularPreco(perfume.originalPrice);
             const desconto = Math.round((1 - precoContratipo / perfume.originalPrice) * 100);
             const parcelas = precoContratipo >= 100 ? "3x no cartão" : "2x no cartão";
@@ -848,11 +849,11 @@
                     <div class="product-images">
                         <div class="product-image-container">
                             <span class="label label-dupe">CONTRATIPO</span>
-                            <img src="https://placehold.co/200x200/1a1a2e/d4af37?text=CONTRATIPO+PREMIUM&font=montserrat" alt="Frasco Contratipo Inspirado em ${perfume.name}">
+                            <img src="https://placehold.co/200x200/1a1a2e/d4af37?text=CONTRATIPO+PREMIUM&font=montserrat" alt="Contratipo ${perfume.name}">
                         </div>
                         <div class="product-image-container">
                             <span class="label label-original">ORIGINAL</span>
-                            <img src="https://placehold.co/200x200/f8f9fa/333333?text=${encodeURIComponent(nomeOriginal)}&font=montserrat" alt="Perfume Original ${perfume.name} da marca ${perfume.brand}">
+                            <img src="https://placehold.co/200x200/f8f9fa/333333?text=${encodeURIComponent(nomeOriginal)}&font=montserrat" alt="Original ${perfume.name}">
                         </div>
                     </div>
                     <div class="product-info">
@@ -878,19 +879,17 @@
             `;
         }
 
-        // RENDERIZAR PERFUMES
         function renderizarPerfumes() {
             const containerFem = document.getElementById('femininos');
             const containerMasc = document.getElementById('masculinos');
             
-            containerFem.innerHTML = perfumesFemininos.map(p => criarCard(p, 'F')).join('');
-            containerMasc.innerHTML = perfumesMasculinos.map(p => criarCard(p, 'M')).join('');
+            containerFem.innerHTML = perfumesFemininos.map(p => criarCard(p)).join('');
+            containerMasc.innerHTML = perfumesMasculinos.map(p => criarCard(p)).join('');
             
             document.getElementById('count-fem').textContent = perfumesFemininos.length;
             document.getElementById('count-masc').textContent = perfumesMasculinos.length;
         }
 
-        // TABS
         function showTab(tabName) {
             document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
             document.querySelectorAll('.tab-button').forEach(b => b.classList.remove('active'));
@@ -898,17 +897,14 @@
             event.target.classList.add('active');
         }
 
-        // COMPRAR
         function buyProduct(nome, codigo, preco) {
             const mensagem = `Olá! 👋\n\nVi o site Perfumes Itabuna e quero comprar:\n\n🌟 *Produto:* ${nome}\n🔖 *Código:* ${codigo}\n💰 *Preço:* R$ ${preco.toFixed(2).replace('.', ',')}\n\nGostaria de saber as formas de pagamento (PIX, cartão, dinheiro) e como funciona a entrega em Itabuna.\n\nObrigado(a)! 😊`;
             const url = `https://wa.me/5573991281765?text=${encodeURIComponent(mensagem)}`;
             window.open(url, '_blank');
         }
 
-        // INICIALIZAR
         renderizarPerfumes();
 
-        // HEADER SCROLL
         window.addEventListener('scroll', () => {
             const header = document.querySelector('header');
             header.style.background = window.scrollY > 100 ? 'rgba(10,10,15,0.98)' : 'linear-gradient(135deg, var(--dark) 0%, var(--dark2) 100%)';
